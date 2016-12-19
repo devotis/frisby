@@ -19,11 +19,15 @@ describe('Max', () => {
 
   describe('monoid', () => {
     test('left identity', () => {
-      expect(Max(10).concat(Max.empty()).x).toEqual(10);
+      expect(
+        Max(10).concat(Max.empty()).x,
+      ).toEqual(10);
     });
 
     test('right identity', () => {
-      expect(Max(10).concat(Max.empty()).x).toEqual(10);
+      expect(
+        Max(10).concat(Max.empty()).x,
+      ).toEqual(10);
     });
   });
 });
