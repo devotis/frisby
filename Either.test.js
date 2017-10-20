@@ -78,13 +78,20 @@ describe('Right', () => {
       const g = n => n + 1;
 
       expect(
-        Right(x).chain(f).chain(g),
+        Right(x)
+        .chain(a => Right(f(a)))
+        .chain(a => Right(g(a)))
+        .fold(a => 'error', a => a),
       ).toEqual(5);
 
       expect(
-        Right(x).chain(f).chain(g),
+        Right(x)
+        .chain(a => Right(f(a)))
+        .chain(a => Right(g(a)))
+        .fold(a => 'error', a => a),
       ).toEqual(
-        Right(x).chain(a => f(a).chain(g)),
+        Right(x)
+        .chain(a => Right(f(a)).chain(g)),
       );
     });
   });
